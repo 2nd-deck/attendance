@@ -1,20 +1,20 @@
 {
   "files": {
-    "main.css": "/attendance/static/css/main.a99df02a.chunk.css",
-    "main.js": "/attendance/static/js/main.b2119537.chunk.js",
-    "main.js.map": "/attendance/static/js/main.b2119537.chunk.js.map",
+    "main.css": "/attendance/static/css/main.b54bab6f.chunk.css",
+    "main.js": "/attendance/static/js/main.77492cf9.chunk.js",
+    "main.js.map": "/attendance/static/js/main.77492cf9.chunk.js.map",
     "runtime-main.js": "/attendance/static/js/runtime-main.4d104dd9.js",
     "runtime-main.js.map": "/attendance/static/js/runtime-main.4d104dd9.js.map",
-    "static/js/2.34ab8603.chunk.js": "/attendance/static/js/2.34ab8603.chunk.js",
-    "static/js/2.34ab8603.chunk.js.map": "/attendance/static/js/2.34ab8603.chunk.js.map",
+    "static/js/2.741ed6ca.chunk.js": "/attendance/static/js/2.741ed6ca.chunk.js",
+    "static/js/2.741ed6ca.chunk.js.map": "/attendance/static/js/2.741ed6ca.chunk.js.map",
     "index.html": "/attendance/index.html",
-    "static/css/main.a99df02a.chunk.css.map": "/attendance/static/css/main.a99df02a.chunk.css.map",
-    "static/js/2.34ab8603.chunk.js.LICENSE.txt": "/attendance/static/js/2.34ab8603.chunk.js.LICENSE.txt"
+    "static/css/main.b54bab6f.chunk.css.map": "/attendance/static/css/main.b54bab6f.chunk.css.map",
+    "static/js/2.741ed6ca.chunk.js.LICENSE.txt": "/attendance/static/js/2.741ed6ca.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.4d104dd9.js",
-    "static/js/2.34ab8603.chunk.js",
-    "static/css/main.a99df02a.chunk.css",
-    "static/js/main.b2119537.chunk.js"
+    "static/js/2.741ed6ca.chunk.js",
+    "static/css/main.b54bab6f.chunk.css",
+    "static/js/main.77492cf9.chunk.js"
   ]
 }
