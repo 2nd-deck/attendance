@@ -1,14 +1,20 @@
 import React from "react";
 
-const Send = () => {
-    console.log("send?");
+const Send = ({ profile, each, colName }) => {
+    let timeNow = new Date();
+
+    let timeArray = timeNow.toLocaleTimeString().split(":");
+    let newTime = timeArray[0] + "시" + timeArray[1] + "분";
+    const finalMessage = `Mytree English\n${each.name}(${each.group}) 출석하였습니다.\n\n출석 시간(${newTime})`;
+    console.log(colName);
     var myHeaders = new Headers();
     myHeaders.append("Content-Type", "application/json");
 
     var raw = JSON.stringify({
-        myphone: "01066860366",
-        phoneNum: "01066860366",
-        message: " 학생 출석하였습니다.",
+        userId: colName,
+        myphone: profile.myphone,
+        phoneNum: each.phone,
+        message: finalMessage,
     });
 
     var requestOptions = {
@@ -26,7 +32,7 @@ const Send = () => {
         .then((response) => response.text())
         .then((result) => console.log(result))
         .catch((error) => console.log("error", error));
-    return <div>굿</div>;
+    return <div></div>;
 };
 
 export default Send;

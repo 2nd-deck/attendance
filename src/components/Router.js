@@ -4,9 +4,12 @@ import Auth from "../routes/Auth";
 import Home from "../routes/Home";
 import Profile from "../routes/Profile";
 import Edit from "../routes/Edit";
+import Records from "../routes/Records";
 import About from "../routes/About";
-import Navigation from "./Navigation";
-import "./App.css";
+// import Navigation from "./Navigation";
+import Navbar from "../nav/Navbar";
+import styled from "styled-components";
+// import "./App.css";
 
 const AppRouter = ({
     isLoggedIn,
@@ -15,13 +18,15 @@ const AppRouter = ({
     groupData,
     colName,
     profile,
+    dateInfo,
 }) => {
     return (
         <Router>
-            {isLoggedIn && <Navigation />}
+            {/* {isLoggedIn && <Navigation />} */}
+            {isLoggedIn && <Navbar />}
             <Switch>
                 {isLoggedIn ? (
-                    <>
+                    <Container>
                         <Route exact path="/">
                             <Home
                                 userObj={userObj}
@@ -29,6 +34,7 @@ const AppRouter = ({
                                 groupData={groupData}
                                 colName={colName}
                                 profile={profile}
+                                dateInfo={dateInfo}
                             />
                         </Route>
                         <Route exact path="/about">
@@ -42,6 +48,15 @@ const AppRouter = ({
                                 group={group}
                                 groupData={groupData}
                                 colName={colName}
+                                dateInfo={dateInfo}
+                            />
+                        </Route>
+                        <Route exact path="/records">
+                            <Records
+                                group={group}
+                                groupData={groupData}
+                                colName={colName}
+                                dateInfo={dateInfo}
                             />
                         </Route>
                         {/* <Route exact path="/editClass">
@@ -58,17 +73,21 @@ const AppRouter = ({
                                 colName={colName}
                             />
                         </Route> */}
-                    </>
+                    </Container>
                 ) : (
-                    <>
+                    <Container>
                         <Route exact path="/">
                             <Auth />
                         </Route>
-                    </>
+                    </Container>
                 )}
             </Switch>
         </Router>
     );
 };
+const Container = styled.div`
+    padding: 30px;
+    min-width: 350px;
+`;
 
 export default AppRouter;
