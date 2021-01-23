@@ -144,8 +144,8 @@ const ClassButton = styled.button`
     align-items: center; */
 
     width: 10%;
-    max-width: 100px;
-    min-width: 80px;
+    max-width: 110px;
+    min-width: 90px;
     height: 50px;
     border: none;
     margin-right: 0.5rem;

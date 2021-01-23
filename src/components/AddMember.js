@@ -6,7 +6,7 @@ import styled from "styled-components";
 const AddMember = ({ colName, groupData, groupName }) => {
     const [newMember, setNewMember] = useState("");
     const [newPhone, setNewPhone] = useState("");
-    const [newKorean, setNewKorean] = useState("");
+    // const [newKorean, setNewKorean] = useState("");
 
     const onSubmit = async (event) => {
         event.preventDefault();
@@ -14,7 +14,7 @@ const AddMember = ({ colName, groupData, groupName }) => {
         groupData[groupName].push({
             name: newMember,
             phone: newPhone,
-            korean: newKorean,
+            korean: "",
             group: groupName,
         });
         await dbService.doc(`${colName}/Data`).set(groupData);
@@ -36,11 +36,11 @@ const AddMember = ({ colName, groupData, groupName }) => {
                     placeholder="Member Name"
                     onChange={(e) => setNewMember(e.target.value)}
                 />
-                <Input
+                {/* <Input
                     name="koreanName"
                     placeholder="실명"
                     onChange={(e) => setNewKorean(e.target.value)}
-                />
+                /> */}
                 <Input
                     name="phone"
                     type="phone"

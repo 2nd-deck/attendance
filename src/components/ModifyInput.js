@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 
-export const Input = ({ type, placeholder, onChange }) => {
+export const ModifyInput = ({ type, placeholder, onChange }) => {
     return (
         <Container>
             <StyledInput
@@ -15,12 +15,13 @@ export const Input = ({ type, placeholder, onChange }) => {
     );
 };
 const StyledInput = styled.input`
-    width: 80%;
-    max-width: 200px;
-    min-width: 200px;
+    width: 100%;
+    max-width: 150px;
+    min-width: 100px;
     height: 40px;
     border: none;
     margin-bottom: 1rem;
+    margin-right: 0.5rem;
     background-color: #f5f5f5;
     box-shadow: 0px 14px 9px -15px rgba(0, 0, 0, 0.25);
     border-radius: 8px;
@@ -31,27 +32,10 @@ const StyledInput = styled.input`
     }
 `;
 
-// const Status = styled.div`
-//     height: 10px;
-//     width: 10px;
-//     background: #9d9d9d;
-//     border-radius: 10px;
-//     margin-left: 1rem;
-
-//     ${StyledInput}:focus + & {
-//         background: #ffa689;
-//     }
-//     ${StyledInput}:invalid + & {
-//         background: #fe2f75;
-//     }
-//     ${StyledInput}:valid + & {
-//         background: #70edb9;
-//     }
-// `;
 const Container = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
 `;
 
-export default Input;
+export default ModifyInput;

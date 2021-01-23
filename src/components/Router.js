@@ -38,7 +38,11 @@ const AppRouter = ({
                             />
                         </Route>
                         <Route exact path="/about">
-                            <About />
+                            <About
+                                group={group}
+                                groupData={groupData}
+                                colName={colName}
+                            />
                         </Route>
                         <Route exact path="/profile">
                             <Profile colName={colName} profile={profile} />
