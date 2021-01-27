@@ -6,8 +6,6 @@ import styled, { css } from "styled-components";
 import { ModifyInput } from "../components/ModifyInput";
 import { dbService } from "../fbase";
 
-import SaveDate from "./SaveDate";
-
 const MemList = ({
     colName,
     groupData,
@@ -51,7 +49,6 @@ const MemList = ({
             return item.name === props;
         });
         if (idx > -1) groupData[groupName].splice(idx, 1);
-        console.log(groupData[groupName]);
         await dbService.doc(`${colName}/Data`).set(groupData);
     };
     // let memeberList;
@@ -117,7 +114,7 @@ const MemList = ({
                                 `${each.name} 출석이 맞습니까?`
                             );
                             if (result) {
-                                SaveDate({ each, colName, dateInfo });
+                                // SaveDate({ each, colName, dateInfo });
                                 Send({
                                     profile,
                                     each,
@@ -162,20 +159,21 @@ const attend = ({ each, dateInfo }) => {
     const today = dateNow.toLocaleDateString().split(".");
     const year = today[0];
     let month = today[1].substring(1);
-    const date = today[2].substring(1);
+    const date = today[2].substring(1) + "일";
     if (month.length === 1) {
         month = "0" + month;
     } else {
         month = today[1];
     }
     const yearMonth = year + month;
-
+    let dateTimeArr = [];
     // let setSaveInfo = [];
     if (dateInfo[yearMonth]) {
         if (dateInfo[yearMonth][each.name]) {
             if (
                 dateInfo[yearMonth][each.name].every(function (value) {
-                    return value !== date;
+                    dateTimeArr = value.split(" ");
+                    return dateTimeArr[0] !== date;
                 })
             ) {
                 return false;

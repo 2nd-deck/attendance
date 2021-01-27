@@ -25,7 +25,7 @@ const Records = ({ group, groupData, colName, dateInfo }) => {
         <div>
             <h3>{each}</h3>
             {memList[each].map((each1) => (
-                <span>{each1}일</span>
+                <span>{each1}</span>
             ))}
             {/* {console.log(memList[each])} */}
         </div>

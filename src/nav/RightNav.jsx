@@ -43,7 +43,7 @@ const RightNav = ({ open }) => {
             <Link to="/">Home</Link>
             <Link to="/profile">Profile</Link>
             <Link to="/edit">Edit</Link>
-            <Link to="/about">List</Link>
+            {/* <Link to="/about">List</Link> */}
             <Link to="/records">Records</Link>
             {/* <li>Sign Up</li> */}
         </Ul>
