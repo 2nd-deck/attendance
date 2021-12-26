@@ -5,6 +5,9 @@ import { Link } from "react-router-dom";
 const Ul = styled.ul`
     list-style: none;
     display: flex;
+    position: absolute;
+    top: 5px;
+    right: 20px;
     flex-flow: row nowrap;
     a {
         padding: 18px 10px;
@@ -16,6 +19,7 @@ const Ul = styled.ul`
         font-weight: 600;
     }
     @media (max-width: 768px) {
+        z-index: 997;
         flex-flow: column nowrap;
         background-color: #eefcff;
         position: fixed;

@@ -1,10 +1,11 @@
 import React, { useState } from "react";
 // import { dbService } from "../fbase";
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
 const Records = ({ group, groupData, colName, dateInfo }) => {
     const [nameList, setNameList] = useState([]);
     const [memList, setMemList] = useState({});
+    const [selectedMem, setSelectedMem] = useState({});
     const yearMonthList = Object.keys(dateInfo);
     yearMonthList.sort();
     const selectYearMonth = yearMonthList.map((yearMonth) => (
@@ -21,14 +22,34 @@ const Records = ({ group, groupData, colName, dateInfo }) => {
         setNameList(Object.keys(temp));
     };
 
+    const selectMem = (each) => {
+        if (selectedMem === each) {
+            setSelectedMem("");
+        } else {
+            setSelectedMem(each);
+        }
+    };
+
     const showMembers = nameList.map((each) => (
-        <div>
-            <h3>{each}</h3>
-            {memList[each].map((each1) => (
-                <span>{each1}</span>
-            ))}
+        <Container>
+            <MemButton
+                name={each}
+                selectedName={selectedMem}
+                onClick={() => selectMem(each)}
+            >
+                {each}({memList[each].length}일)
+            </MemButton>
+            {selectedMem === each ? (
+                <div>
+                    {memList[each].map((each1) => (
+                        <ul>{each1}</ul>
+                    ))}
+                </div>
+            ) : (
+                <div></div>
+            )}
             {/* {console.log(memList[each])} */}
-        </div>
+        </Container>
     ));
     return (
         <Container>
@@ -54,15 +75,15 @@ const Container = styled.div`
         margin-bottom: 1rem;
         text-align: center;
     }
-    span {
+    ul {
         padding: 10px;
-
+        font-size: 15px;
         height: 40px;
         border: none;
-        margin-right: 0.2rem;
         margin-bottom: 0.2rem;
         border-radius: 8px;
-        background-color: #70edb9;
+        vertical-align: center;
+        background-color: rgb(177, 180, 182);
         color: #fff;
         font-weight: 600;
     }
@@ -71,8 +92,30 @@ const Container = styled.div`
         padding: 6px;
         font-weight: 600;
         border-radius: 8px;
+        margin-bottom: 1rem;
         border: none;
         background-color: #eefcff;
     }
+`;
+const MemButton = styled.button`
+    padding: 10px;
+    /* margin-top: 2rem; */
+    height: 40px;
+    border: none;
+    margin-right: 0.2rem;
+    margin-bottom: 1rem;
+    border-radius: 8px;
+    font-size: 18px;
+    background-color: #70edb9;
+    color: #fff;
+    font-weight: 600;
+    ${(props) =>
+        props.name === props.selectedName
+            ? css`
+                  background-color: #ffa689;
+              `
+            : css`
+                  background-color: #70edb9;
+              `};
 `;
 export default Records;

@@ -10,12 +10,18 @@ const Nav = styled.nav`
     padding: 0 20px;
     display: flex;
     justify-content: space-between;
+
     .logo {
         padding: 15px 0;
         color: #48484d;
         font-size: 25px;
         font-weight: 600;
         text-decoration: none;
+        z-index: 999;
+        display: fixed;
+    }
+    .buger {
+        z-index: 998;
     }
 `;
 
@@ -26,7 +32,7 @@ const Navbar = () => {
                 MY TREE ENGLISH
             </Link>
 
-            <Burger />
+            <Burger className="buger" />
         </Nav>
     );
 };

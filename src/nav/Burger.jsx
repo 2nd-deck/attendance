@@ -8,8 +8,8 @@ const StyledBurger = styled.div`
     position: fixed;
     top: 15px;
     right: 20px;
-    z-index: 20;
     display: none;
+    z-index: 998;
     @media (max-width: 768px) {
         display: flex;
         justify-content: space-around;
@@ -35,10 +35,31 @@ const StyledBurger = styled.div`
         }
     }
 `;
+const Empty = styled.div`
+    display: flex;
+    flex-flow: row nowrap;
 
+    @media (max-width: 768px) {
+        /* background-color: #15ccf5; */
+        z-index: 996;
+        position: fixed;
+
+        height: 100vh;
+        transform: ${({ open }) =>
+            open ? "translateX(0)" : "translateX(100%)"};
+        top: 0;
+        right: 0;
+        height: 100vh;
+        width: ${({ open }) => (open ? "100%" : "0%")};
+        padding-top: 3.5rem;
+        transition: transform 0.3s ease-in-out;
+    }
+`;
 const Burger = () => {
     const [open, setOpen] = useState(false);
-
+    const closeSide = () => {
+        setOpen(false);
+    };
     return (
         <>
             <StyledBurger open={open} onClick={() => setOpen(!open)}>
@@ -47,6 +68,7 @@ const Burger = () => {
                 <div />
             </StyledBurger>
             <RightNav open={open} />
+            <Empty open={open} onClick={closeSide}></Empty>
         </>
     );
 };
